@@ -192,6 +192,9 @@ bindsym $mod+r mode "resize"
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# Set background
+exec_always --no-startup-id $HOME/.fehbg
+
 # Borders
 default_border pixel 2 
 hide_edge_borders smart 
@@ -199,4 +202,6 @@ hide_edge_borders smart
 # Colors
 # class                 border  backgr. text    indic. 	child_border
 client.focused 		#a277ff #a277ff #15141b #a277ff #a277ff
-
+#client.focused_inactive	#a277ff #a277ff #15141b #a277ff #a277ff
+client.unfocused 	#3d375e #3d375e #edecee #a277ff #3d375e
+client.urgent		#ff6767 #ff6767 #edecee #a277ff #ff6767
