@@ -100,3 +100,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export EDITOR='vim'
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
+alias ssh="TERM=xterm-256color ssh"
+
+mkcd(){
+    mkdir "$1"
+    cd "$1"
+}

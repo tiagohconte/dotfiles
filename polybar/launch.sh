@@ -7,7 +7,6 @@ polybar-msg cmd quit
 # killall -q polybar
 
 # Launch bar
-echo "---" >> /tmp/polybar.log
-polybar 2>&1 >> /tmp/polybar.log & 
+polybar & 
 
 echo "Bars launched..."
