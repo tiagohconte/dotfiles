@@ -68,7 +68,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -b -fn "Source Code Pro-11" -sb '#A277FF'
+bindsym $mod+d exec --no-startup-id dmenu_run -b -fn "Source Code Pro-11" -sb '#8be9fd'
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -224,8 +224,17 @@ default_border pixel 2
 hide_edge_borders smart
 
 # Colors
+
+# Aura Theme
 # class                 border  backgr. text    indic. 	child_border
-client.focused 		#a277ff #a277ff #15141b #a277ff #a277ff
-#client.focused_inactive	#a277ff #a277ff #15141b #a277ff #a277ff
-client.unfocused 	#3d375e #3d375e #edecee #a277ff #3d375e
+# client.focused 		#a277ff #a277ff #15141b #a277ff #a277ff
+# client.focused_inactive	#a277ff #a277ff #15141b #a277ff #a277ff
+# client.unfocused 	#3d375e #3d375e #edecee #a277ff #3d375e
+# client.urgent		#ff6767 #ff6767 #edecee #a277ff #ff6767
+
+# Dracula Theme
+# class                 border  backgr. text    indic. 	child_border
+client.focused 		#8be9fd #8be9fd #282a36 #50FA7B #8be9fd
+# client.focused_inactive	#a277ff #a277ff #15141b #a277ff #a277ff
+client.unfocused 	#282a36 #282a36 #F8F8F2 #50FA7B #282a36
 client.urgent		#ff6767 #ff6767 #edecee #a277ff #ff6767
