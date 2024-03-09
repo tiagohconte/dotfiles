@@ -14,8 +14,8 @@ font pango:UbuntuMono Nerd Font 9
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 #exec --no-startup-id dex --autostart --environment i3
 
-# Screenlocker start
-exec --no-startup-id xautolock -locker "betterlockscreen -l -- --nofork" -time 5 -corners '-0-0' -cornersize '30'
+# Autolock start
+# exec --no-startup-id xautolock -locker "betterlockscreen -l -- --nofork" -time 5 -corners '-0-0' -cornersize '30'
 
 # Use pactl to adjust volume in PulseAudio
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -43,7 +43,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # Lock screen
-bindsym $mod+Control+l exec betterlockscreen -l -- --nofork
+bindsym $mod+Control+l exec betterlockscreen -l
 
 # Print screen
 bindsym --release Print exec --no-startup-id maim -i $(xdotool getactivewindow) "/home/$USER/img/screenshots/screenshot-$(date +'%Y%m%d%H%M%S').png"
