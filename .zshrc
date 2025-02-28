@@ -9,7 +9,14 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+
+# Set a different theme depending on the terminal type
+if [[ ${TERM} = "linux" ]]; then
+    ZSH_THEME="dieter-custom"
+else
+    ZSH_THEME="agnoster"
+fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -61,7 +68,7 @@ ZSH_THEME="agnoster"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -102,8 +109,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR='vim'
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 alias ssh="TERM=xterm-256color ssh"
+
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
 
 mkcd(){
     mkdir "$1"
@@ -113,3 +123,7 @@ mkcd(){
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [[ -f .nvmrc ]]; then
+    nvm use > /dev/null
+fi
