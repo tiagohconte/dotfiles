@@ -1,0 +1,158 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "autohide": true,
+    "autohide-blocked": false,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "output": "HDMI-A-1",
+
+    /* === Modules Order === */
+    "modules-left": [
+        "custom/archicon",
+        "clock",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "hyprland/workspaces",
+    ],
+    // "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+        // "wlr/taskbar",
+        "tray",
+        "idle_inhibitor",
+        "custom/spotify",
+        // "pulseaudio/slider",
+        "pulseaudio",
+        "network",
+        "hyprland/language",
+    ],
+
+    /* === Modules Left === */
+    "custom/archicon": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/config.rasi",
+        "tooltip": false,
+    },
+    "clock": {
+        // "timezone": "America/Mexico_City",
+        // "format": "{:%d/%m/%Y %H:%M}",
+        "interval": 1,
+        "format": "󰃮 {:%Y-%m-%d 󰥔 %H:%M}",
+        "format-alt": "󰃮 {:%Y-%m-%d 󰥔 %H:%M:%S}",
+        // "tooltip-format": "{calendar}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+        },
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true,
+        "tooltip-format": "CPU usage: {usage}%\nCores: {cores}",
+    },
+    "memory": {
+        "format": "{}% 󰍛",
+        "tooltip": true,
+        "tooltip-format": "RAM usage: {used} / {total} ({percentage}%)",
+    },
+    "disk": {
+        "format": "{percentage_used}% ",
+        "tooltip": true,
+        "tooltip-format": "Used space: {used} / {total} ({percentage_used}%)",
+    },
+    "temperature": {
+        "format": "{temperatureC}°C {icon}",
+        "tooltip": true,
+        "tooltip-format": "Current temperature: {temperatureC}°C",
+        "format-icons": [""],
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input",
+    },
+
+    /* === Modules Center === */
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "active": "",
+        },
+        "persistent-workspaces": {
+            "*": 1,
+        },
+        "disable-scroll": true,
+        "all-outputs": true,
+        "show-special": true,
+    },
+
+    /* === Modules Right === */
+    "tray": {
+        "icon-size": 21,
+        "max-icons": 5,
+    },
+    // "wlr/taskbar": {
+    //     "format": "{icon}",
+    //     "all-outputs": true,
+    //     "active-first": true,
+    //     "tooltip-format": "{name}",
+    //     "on-click": "activate",
+    //     "on-click-middle": "close",
+    //     "ignore-list": ["rofi"]
+    // },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "",
+        },
+    },
+    "custom/spotify": {
+        "exec": "$HOME/.config/waybar/spotify-info.sh",
+        // "exec-if": "pgrep spotify",
+        "format": "{icon} {text}",
+        "escape": true,
+        // "return-type": "json",
+        "interval": 3,
+        "max-length": 50,
+        "on-click": "playerctl -p spotify play-pause",
+        "on-scroll-up": "playerctl -p spotify next",
+        "on-scroll-down": "playerctl -p spotify previous",
+        "format-icons": {
+            "default": " ",
+        },
+    },
+    // "pulseaudio/slider": {
+    //     "format": "{volume}%",
+    //     "format-muted": " MUTE",
+    //     "step": 5,
+    //     "tooltip": false
+    // },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "MUTE  ",
+        "format-icons": {
+            "default": ["", ""],
+        },
+        "scroll-step": 5,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-middle": "pavucontrol",
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-ethernet": "{ifname} 󰈀",
+        "format-disconnected": " ",
+        "format-alt": "{ifname} 󰈀    {bandwidthUpBits}   {bandwidthDownBits}",
+        // "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format": "  {ifname} {ipaddr}/{cidr}",
+        "tooltip-format-ethernet": "  {ifname} {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 5,
+        "max-length": 50,
+    },
+    "hyprland/language": {
+        "format": "{} ",
+        "on-click": "hyprctl switchxkblayout all next",
+        "format-en-intl": "English (Intl)",
+    },
+}
